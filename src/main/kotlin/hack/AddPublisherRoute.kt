@@ -10,7 +10,7 @@ class AddPublisherRoute : Route {
             publishers.size +1,
             request.queryParams("name"),
             request.queryParams("address"),
-            "1234", //request.queryParams("mobile"),
+            request.queryParams("mobile"),
             request.queryParams("times"),
             request.queryParams("offer")
         ))
