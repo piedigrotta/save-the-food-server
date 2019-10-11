@@ -6,7 +6,8 @@ import spark.Response
 import spark.Spark.get
 import spark.Spark.port
 
-var offers = mutableListOf("a", "b")
+var offers = mutableListOf<Publisher>()
+var publishers = mutableListOf(Publisher(1, "Panetteria Fracassi", "Via Moruzzi 1, Pavia", "9:00-18:00", "Pane, pizze e focacce al 50%"))
 
 fun main() {
     port(8080)
@@ -22,4 +23,3 @@ private fun aliveRoute(): (Request, Response) -> String {
         "Hello"
     }
 }
-
