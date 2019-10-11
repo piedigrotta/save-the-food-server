@@ -8,14 +8,17 @@ import spark.Route
 import com.eclipsesource.json.JsonObject
 
 
-
 class ListRoute : Route {
     override fun handle(request: Request, response: Response): String {
         response.type("application/json")
         response.status(HttpStatus.OK_200)
 
         val array = Json.array()
-        offers.forEach { array.add(it.toJson()) }
+        offers.reversed().map { offer ->
+            publishers.single { publisher ->
+                offer == publisher.id
+            }
+        }.forEach { array.add(it.toJson()) }
         return array.toString() + "\n"
     }
 }
