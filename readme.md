@@ -1,0 +1,4 @@
+# To build
+```
+./gradlew build
+```
